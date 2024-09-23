@@ -1,10 +1,7 @@
-// pages/api/graphql.ts
+// api/graphql/route.ts
 import { ApolloServer } from "@apollo/server";
-// import { NextApiRequest, NextApiResponse } from 'next';
 import { startServerAndCreateNextHandler } from "@as-integrations/next";
-
 import { PrismaClient } from '@prisma/client';
-// import { makeExecutableSchema } from '@graphql-tools/schema';
 import { NextRequest } from 'next/server';
 
 const prisma = new PrismaClient();
@@ -50,17 +47,6 @@ const resolvers = {
       await prisma.todo.delete({ where: { id } }),
   },
 };
-
-// const schema = makeExecutableSchema({ typeDefs, resolvers });
-
-// const server = new ApolloServer({ schema });
-
-// const startServer = server.start();
-
-// export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-//   await startServer;
-//   await server.createHandler({ path: '/api/graphql' })(req, res);
-// }
 
 const apolloServer = new ApolloServer({
   typeDefs,
