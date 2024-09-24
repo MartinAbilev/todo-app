@@ -11,6 +11,7 @@ const typeDefs = `
     id: Int!
     title: String!
     done: Boolean!
+    hidden: Boolean!
     createdAt: String!
   }
 

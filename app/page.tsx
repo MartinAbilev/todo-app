@@ -12,6 +12,7 @@ const GET_TODOS = gql`
       id
       title
       done
+      hidden
       createdAt
     }
   }
@@ -53,7 +54,7 @@ export default function Home() {
               }}
               onClick={() => handleToggleDone(todo.id)}
             >
-              {todo.title}
+              {todo.title} {todo.hidden ? <>is hidden</> : <>is visible</>}
             </span>
           </li>
         ))}
